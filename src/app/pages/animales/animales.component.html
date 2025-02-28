@@ -1,0 +1,17 @@
+<header class="elheader">
+    <app-header></app-header> 
+  </header>
+<div class="video-background">
+    <video autoplay loop muted playsinline>
+      <source src="assets/vid.mp4" type="video/mp4" />
+      Tu navegador no soporta videos en HTML5.
+    </video>
+  </div>
+  <h2>Resultados para "{{ termino }}"</h2>
+
+<ul>
+  <li *ngFor="let animal of resultados">
+    <h3>{{ animal.taxon.preferred_common_name || animal.taxon.name }}</h3>
+    <img *ngIf="animal.photos.length > 0" [src]="animal.photos[0].url" alt="{{ animal.taxon.name }}">
+  </li>
+</ul>

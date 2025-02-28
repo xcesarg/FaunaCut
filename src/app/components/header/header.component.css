@@ -1,0 +1,83 @@
+:root{
+    --verdeoscuro : #152626;
+    --verdeeclaro: #6B7334;
+    --beige: #F2EFDC;
+    --oscuro222: #222;
+}
+.elheader {
+    position: fixed; /* Asegura que el header quede fijo en la parte superior */
+top: 0;
+left: 0;
+width: 100%;
+background: var(--verdeoscuro) ;
+color: var(--beige);
+padding: 20px 20px;
+z-index: 2;
+  display: flex; /* Usamos Flexbox */
+  justify-content: space-between; /* Espacio entre los elementos */
+align-items: center;
+font-family: sans-serif;
+}
+.elheader h1{
+    margin: 0;
+    font-size: 120%;
+}
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.nav-list{
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin: 0;
+    display: flex;   
+    justify-content: center;
+}
+.nav-list li{
+    align-items: center;
+    margin: 5px 15px;
+}
+.nav-list li a{
+    text-decoration: none;
+    color: var(--beige);
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
+    border-bottom: 2px transparent;
+}
+.nav-list li a:hover {
+    color:  #6B7334;
+    border-bottom: 2px solid var(--verdeclaro); 
+}
+.lihover {
+    font-size: 2rem;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .lihover::after,
+  .lihover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #F2EFDC, #6b7334);
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease-out;
+  }
+  
+  .lihover::before {
+    top: -5px;
+    transform-origin: left;
+  }
+  
+  .lihover:hover::after,
+  .lihover:hover::before {
+    transform: scaleX(1);
+  }
+  

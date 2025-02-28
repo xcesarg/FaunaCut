@@ -1,0 +1,165 @@
+:root {
+  --verdeoscuro: #152626;
+  --verdeclaro: #6B7334;
+  --beige: #F2EFDC;
+  --oscuro222: #222;
+}
+
+.home-container {
+  text-align: center;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.input-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Alinea ambos elementos horizontalmente */
+  gap: 10px; /* Agrega espacio entre el input y el botón */
+  margin-top: 20px; /* Espacio superior */
+}
+
+input {
+  width: 50%;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Asegura que el padding no afecte al tamaño total */
+}
+
+input:focus {
+  border: 1px solid rgba(107, 115, 52, 0.3);
+  outline: none;
+}
+
+::placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+.buscador {
+  background-color: var(--verdeoscuro);
+  color: antiquewhite;
+  border: none;
+  box-sizing: border-box;
+}
+
+.h1home {
+  font-weight: 1000;
+  font-family: sans-serif;
+}
+
+.p1home {
+  font-size: larger;
+  font-weight: bolder;
+  font-family: sans-serif;
+}
+
+.button {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+}
+
+.shadow {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.edge {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(to left,
+    rgb(82, 230, 92) 0%,
+    hsl(121, 71%, 25%) 8%,
+    hsl(119, 90%, 12%) 92%,
+    hsl(121, 89%, 71%) 100%);
+}
+
+.front {
+  display: block;
+  position: relative;
+  padding: 6px 15px;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--beige);
+  background: var(--verdeoscuro);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+/* Ajustes para el botón cubo */
+.btn-cubo {
+  position: relative;
+  width: 150px;
+  height: 50px;
+  transform-style: preserve-3d; /* Mantiene el efecto 3D */
+  transform: perspective(1000px) rotateX(0deg);
+  transition: transform 1.5s ease-in-out; /* Animación más fluida */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Efecto de rotación al hacer hover */
+.btn-cubo:hover {
+  transform: perspective(1000px) rotateX(360deg);
+}
+
+.btn-cubo span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  background: rgba(255, 255, 255, 0.9);
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 22px;
+  letter-spacing: 2px;
+  transition: 0.5s;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Configuración de cada cara del cubo */
+.btn-cubo span:nth-child(1) {
+  transform: rotateX(0deg) translateZ(25px);
+}
+.btn-cubo span:nth-child(2) {
+  transform: rotateX(90deg) translateZ(25px);
+}
+.btn-cubo span:nth-child(3) {
+  transform: rotateX(180deg) translateZ(25px);
+}
+.btn-cubo span:nth-child(4) {
+  transform: rotateX(270deg) translateZ(25px);
+}
+
+/* Efecto hover para cambiar color */
+.btn-cubo:hover span {
+  color: #fff;
+  background: rgba(3, 169, 244, 0.8);
+}
