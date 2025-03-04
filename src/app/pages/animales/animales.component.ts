@@ -3,6 +3,9 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { InaturalistService } from '../../services/inaturalist.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+
 @Component({
   selector: 'app-animales',
   standalone: true,
@@ -13,6 +16,8 @@ import { NgFor, NgIf } from '@angular/common';
 export class AnimalesComponent implements OnInit {
   resultados: any[] = [];
   termino: string = '';
+  error: string | null = null;
+  loading: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,8 +34,24 @@ export class AnimalesComponent implements OnInit {
   }
 
   buscarAnimales() {
-    this.iNaturalistService.buscarAnimales(this.termino).subscribe((data: any) => {
-      this.resultados = data.results;
-    });
+    this.loading = true;
+    this.error = null;
+    
+    this.iNaturalistService.buscarAnimales(this.termino)
+      .pipe(
+        catchError(err => {
+          this.error = 'No se pudieron cargar los animales. Intenta de nuevo.';
+          this.loading = false;
+          return of({ results: [] });
+        })
+      )
+      .subscribe((data: any) => {
+        this.resultados = data.results;
+        this.loading = false;
+        
+        if (this.resultados.length === 0) {
+          this.error = 'No se encontraron resultados para tu búsqueda.';
+        }
+      });
   }
 }

@@ -1,17 +1,33 @@
 <header class="elheader">
-    <app-header></app-header> 
-  </header>
-<div class="video-background">
-    <video autoplay loop muted playsinline>
-      <source src="assets/vid.mp4" type="video/mp4" />
-      Tu navegador no soporta videos en HTML5.
-    </video>
-  </div>
-  <h2>Resultados para "{{ termino }}"</h2>
+  <app-header></app-header> 
+</header>
 
-<ul>
-  <li *ngFor="let animal of resultados">
+<div class="video-background">
+  <video autoplay loop muted playsinline>
+    <source src="assets/vid.mp4" type="video/mp4" />
+    Tu navegador no soporta videos en HTML5.
+  </video>
+</div>
+
+<h2>Resultados para "{{ termino }}"</h2>
+
+<div *ngIf="loading" class="loading">
+  Cargando resultados...
+</div>
+
+<div *ngIf="error" class="error">
+  {{ error }}
+</div>
+
+<div *ngIf="!loading && !error" class="resultados">
+  <div *ngFor="let animal of resultados" class="animal-card">
+    <img 
+      *ngIf="animal.photos && animal.photos.length > 0" 
+      [src]="animal.photos[0].url.replace('square', 'medium')" 
+      alt="{{ animal.taxon.preferred_common_name || animal.taxon.name }}"
+      (error)="animal.photos[0].url = 'assets/placeholder-image.png'"
+    >
     <h3>{{ animal.taxon.preferred_common_name || animal.taxon.name }}</h3>
-    <img *ngIf="animal.photos.length > 0" [src]="animal.photos[0].url" alt="{{ animal.taxon.name }}">
-  </li>
-</ul>
+    <p>Nombre científico: <i>{{ animal.taxon.name }}</i></p>
+  </div>
+</div>

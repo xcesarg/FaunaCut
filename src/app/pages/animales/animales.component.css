@@ -1,5 +1,58 @@
-:root{
-    --verdeoscuro : #152626;
-    --verdeeclaro: #6B7334;
-    --beige: #F2EFDC;
+:root {
+  --verdeoscuro: #152626;
+  --verdeeclaro: #6B7334;
+  --beige: #F2EFDC;
+}
+
+.resultados {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.animal-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  padding: 15px;
+  transition: transform 0.3s ease;
+}
+
+.animal-card:hover {
+  transform: scale(1.05);
+}
+
+.animal-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.animal-card h3 {
+  font-size: 18px;
+  margin: 10px 0;
+  color: var(--verdeoscuro);
+}
+
+.animal-card p {
+  font-size: 14px;
+  color: var(--verdeeclaro);
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--beige);
+  color: var(--verdeoscuro);
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.error {
+  color: #721c24;
+  background-color: #f8d7da;
 }
