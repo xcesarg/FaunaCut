@@ -1,15 +1,36 @@
 footer {
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 20px;
+  background: var(--verdeoscuro); /* Mismo fondo que el header */
+  color: var(--beige); /* Mismo color de texto */
+  padding: 20px;
+  text-align: center;
+  font-family: sans-serif;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+
+.contact-section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.contact-section h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid var(--verdeclaro); /* Línea decorativa */
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.contact-section p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 15px;
   }
-  
-  .contact-section a {
-    color: #4da8da;
-    text-decoration: none;
-  }
-  
-  .contact-section a:hover {
-    text-decoration: underline;
-  }
+}
