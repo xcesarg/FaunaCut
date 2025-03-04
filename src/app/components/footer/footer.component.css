@@ -18,19 +18,16 @@ footer {
 .contact-section h3 {
   font-size: 22px;
   margin-bottom: 10px;
-  border-bottom: 2px solid var(--verdeclaro); /* Línea decorativa */
-  display: inline-block;
   padding-bottom: 5px;
+  display: inline-block;
+  position: relative; /* Asegura que la línea se posicione correctamente */
 }
 
-.contact-section p {
-  font-size: 16px;
-  margin: 5px 0;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .contact-section {
-    padding: 15px;
-  }
+.contact-section h3::after {
+  content: "";
+  display: block;
+  width: 60px; /* Ajusta el ancho de la línea */
+  height: 3px; /* Grosor de la línea */
+  background-color: var(--verdeclaro); /* Color de la línea */
+  margin: 5px auto 0; /* Centrar la línea debajo del texto */
 }
