@@ -5,21 +5,26 @@
 }
 
 .resultados {
+  max-width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
   gap: 20px;
   padding: 20px;
 }
 
 .animal-card {
-  background: white;
+  background: var(--verdeoscuro);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(10, 4, 4, 0.218);
   text-align: left;
   padding: 15px;
   transition: transform 0.3s ease;
+  aspect-ratio: 1/1; /* Hace que el alto sea igual al ancho */
+  display: flex;
+  flex-direction: column; /* Asegura que el contenido se distribuya verticalmente */
 }
+
 
 .animal-card:hover {
   transform: scale(1.05);
@@ -27,19 +32,21 @@
 
 .animal-card img {
   width: 100%;
-  height: 250px;
-  object-fit: cover;
+  height: 80%; /* La imagen ocupará la mitad de la tarjeta */
+  max-height: 600px; /* Límite máximo de altura */
+  object-fit: cover; /* Recorta la imagen para que mantenga su proporción sin deformarse */
   border-radius: 10px;
 }
 
+
 .animal-card h3 {
-  font-size: 18px;
+  font-size: 20px;
   margin: 10px 0;
-  color: var(--verdeoscuro);
+  color: var(--beige);
 }
 
 .animal-card p {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--verdeeclaro);
 }
 
@@ -47,12 +54,15 @@
   text-align: center;
   padding: 20px;
   background-color: var(--beige);
-  color: var(--verdeoscuro);
+  color: var(--beige);
   border-radius: 10px;
   margin: 20px;
 }
 
 .error {
-  color: #721c24;
+  color: #ff1e34;
   background-color: #f8d7da;
+}
+.content{
+  color: beige;
 }

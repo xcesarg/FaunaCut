@@ -10,33 +10,48 @@
     flex-direction: column; /* Los elementos (header y content) estarán en una columna */
     min-height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
   }
-.video-background {
-    position: fixed; /* Fijo para que no se mueva con el scroll */
-    top: 0;
-    left: 0;
-    width: 100vw; /* Ocupa todo el ancho de la pantalla */
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-    z-index: -1; /* Envía el video al fondo */
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Ajustar el video para que cubra toda la pantalla sin distorsión */
-  .video-background video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que el video cubra toda el área sin distorsionarse */
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+/* Añade esto a styles.css */
+.imagen-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .content {
-    flex-grow: 1; /* Hace que el contenido ocupe el espacio restante */
-    color:var(--verdeoscuro);
-    text-align: center;
-    padding: 20px;
-  }
-  
+.imagen-fondo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.content {
+  flex-grow: 1; /* Hace que el contenido ocupe el espacio restante */
+  color: var(--verdeoscuro);
+  text-align: center;
+  padding: 5px;
+  display: flex; /* Apila los elementos en columna */
+  flex-direction: column;
+  align-items: center; /* Centra los elementos horizontalmente */
+  justify-content: top; /* Centra los elementos verticalmente */
+  gap: 1px; /* Espacio entre los elementos */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Previene scroll horizontal */
+}
+
+/* Además, asegúrate que tu componente app-footer tenga ancho completo */
+app-footer {
+  width: 100%;
+  display: block;
+}

@@ -1,18 +1,26 @@
 footer {
-  background: var(--verdeoscuro); /* Mismo fondo que el header */
-  color: var(--beige); /* Mismo color de texto */
-  padding: 20px;
+  position: relative;
+  width: 100%;
+  background: var(--verdeoscuro);
+  color: var(--beige);
+  padding: 20px 0;
   text-align: center;
   font-family: sans-serif;
-  width: 100%;
-  position: relative;
+  margin-top: auto; /* Mantiene el footer abajo */
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  /* Anular cualquier margen del body o html */
+  left: 0;
+  right: 0;
   bottom: 0;
 }
 
 .contact-section {
   max-width: 600px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 0 20px;
 }
 
 .contact-section h3 {
@@ -20,14 +28,14 @@ footer {
   margin-bottom: 10px;
   padding-bottom: 5px;
   display: inline-block;
-  position: relative; /* Asegura que la línea se posicione correctamente */
+  position: relative;
 }
 
 .contact-section h3::after {
   content: "";
   display: block;
-  width: 60px; /* Ajusta el ancho de la línea */
-  height: 3px; /* Grosor de la línea */
-  background-color: var(--verdeclaro); /* Color de la línea */
-  margin: 5px auto 0; /* Centrar la línea debajo del texto */
+  width: 60px;
+  height: 3px;
+  background-color: var(--verdeeclaro); /* Corregido para usar la variable correcta */
+  margin: 5px auto 0;
 }

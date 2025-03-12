@@ -54,4 +54,9 @@ export class AnimalesComponent implements OnInit {
         }
       });
   }
+
+  // Método para manejar errores de carga de imágenes
+  handleImageError(event: any) {
+    event.target.src = 'assets/placeholder-image.png';
+  }
 }
