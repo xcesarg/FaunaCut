@@ -1,14 +1,19 @@
 <header class="elheader">
-    <h1>FaunaCut</h1>
-        <nav>
-            <ul class="nav-list">
-                <li class="lihover"><a routerLink="/" class="link">Home</a></li>
-                    
-                <li class="lihover"><a routerLink="/animales" class="link">Animales</a></li>
-
-                <li class="lihover"><a href="#footer" class="button-link">Contacto</a></li>
-            </ul>
-        </nav>
+    <div class="logo-container">
+        <img class="logofc" src="assets/logofaunacut.png" alt="Logo">
+    </div>
     
-
+    <div class="menu-toggle" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <div class="menu-container" [ngClass]="{'active': menuActive}">
+        <ul class="menu-items">
+            <li><a routerLink="/" class="menu-link">Home</a></li>
+            <li><a routerLink="/animales" class="menu-link">Animales</a></li>
+            <li><a href="#footer" class="menu-link">Contacto</a></li>
+        </ul>
+    </div>
 </header>

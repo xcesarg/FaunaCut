@@ -1,83 +1,149 @@
 :root{
-    --verdeoscuro : #152626;
-    --verdeeclaro: #6B7334;
-    --beige: #F2EFDC;
-    --oscuro222: #222;
+  --verdeoscuro: #152626;
+  --verdeeclaro: #6B7334;
+  --beige: #F2EFDC;
+  --oscuro222: #222;
 }
+
 .elheader {
-    position: fixed; /* Asegura que el header quede fijo en la parte superior */
-top: 0;
-left: 0;
-width: 100%;
-background: var(--verdeoscuro) ;
-color: var(--beige);
-padding: 20px 20px;
-z-index: 2;
-  display: flex; /* Usamos Flexbox */
-  justify-content: space-between; /* Espacio entre los elementos */
-align-items: center;
-font-family: sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--verdeoscuro);
+  color: var(--beige); 
+  padding: 10px 20px;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: sans-serif;
+  box-sizing: border-box;
 }
-.elheader h1{
-    margin: 0;
-    font-size: 120%;
+
+.logo-container {
+  flex: 0 0 auto;
 }
-nav{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+
+.logofc {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
 }
-.nav-list{
-    list-style-type: none; /* Elimina los puntos de la lista */
-    padding: 0;
-    margin: 0;
-    display: flex;   
-    justify-content: center;
+
+/* Este contenedor ahora tiene un ancho exacto del 100% menos el ancho del logo */
+.menu-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-left: -50px; /* Compensa el espacio del logo para un centrado real */
 }
-.nav-list li{
-    align-items: center;
-    margin: 5px 15px;
+
+.menu-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
-.nav-list li a{
-    text-decoration: none;
-    color: var(--beige);
-    font-size: 18px;
-    font-weight: bold;
-    transition: color 0.3s;
-    border-bottom: 2px transparent;
+
+.menu-link {
+  text-decoration: none;
+  color: var(--beige);
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 5px 2px;
 }
-.nav-list li a:hover {
-    color:  #6B7334;
-    border-bottom: 2px solid var(--verdeclaro); 
+
+.menu-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #c5ab00, #6B7334);
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-out;
 }
-.lihover {
-    font-size: 2rem;
-    color: #ffffff;
-    position: relative;
-    display: inline-block;
+
+.menu-link:hover {
+  color: var(--verdeeclaro);
+}
+
+.menu-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Botón hamburguesa para menú móvil */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 100%;
+  background-color: var(--beige);
+  border-radius: 10px;
+}
+
+/* Media queries para diseño responsive */
+@media (max-width: 768px) {
+  .elheader {
+      padding: 10px;
   }
   
-  .lihover::after,
-  .lihover::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, #c5ab00, #6b7334);
-    bottom: -5px;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.4s ease-out;
+  .logo-container {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
   }
   
-  .lihover::before {
-    top: -5px;
-    transform-origin: left;
+  .menu-toggle {
+      display: flex;
+      margin-left: auto;
   }
   
-  .lihover:hover::after,
-  .lihover:hover::before {
-    transform: scaleX(1);
+  .menu-container {
+      position: absolute;
+      top: 70px; /* Altura del header */
+      left: 0;
+      width: 100%;
+      background: var(--verdeoscuro);
+      margin-left: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
   }
   
+  .menu-container.active {
+      max-height: 300px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  }
+  
+  .menu-items {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 0;
+  }
+  
+  .menu-link {
+      padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logofc {
+      height: 40px;
+  }
+}
