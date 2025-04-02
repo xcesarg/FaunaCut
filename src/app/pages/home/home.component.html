@@ -4,23 +4,25 @@
   </header>
   
   <div class="imagen-fondo">
-    <img src="assets/imagencut.jpg">
+    <img src="assets/cutnoche.png">
   </div>
   
   <div class="content">
-    <h1 class="h1home">Bienvenido a la Guía de Fauna</h1>
-    <p class="p1home">Explora la fauna de tu centro universitario</p>
-    <div class="input-btn-container">
-      <div class="search-container">
-        <input class="buscador" type="text" [(ngModel)]="busqueda" placeholder="Busca un animal..." />
-        <span class="search-icon">🔍</span>
+    <div class="content-wrapper">
+      <h1 class="h1home">Bienvenido a la Guía de Fauna</h1>
+      <p class="p1home">Explora la fauna de tu centro universitario</p>
+      <div class="input-btn-container">
+        <div class="search-container">
+          <input class="buscador" type="text" [(ngModel)]="busqueda" placeholder="Busca un animal..." />
+          <span class="search-icon">🔍</span>
+        </div>
+        
+        <button class="button-buscar" (click)="buscar()">
+          <span class="shadow"></span>
+          <span class="edge"></span>
+          <span class="front">Buscar</span>
+        </button>  
       </div>
-      
-      <button class="button-buscar" (click)="buscar()">
-        <span class="shadow"></span>
-        <span class="edge"></span>
-        <span class="front">Buscar</span>
-      </button>  
     </div>
   </div>
 </div>
