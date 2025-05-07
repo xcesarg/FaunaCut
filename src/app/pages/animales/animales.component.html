@@ -1,24 +1,72 @@
 <div class="content">
-  <h2>Resultados para "{{ termino }}"</h2>
+  <h2>Especies encontradas en Tonalá: {{ termino }}</h2>
+
+  <!-- Sugerencias rápidas para búsquedas comunes -->
+  <div class="quick-search">
+    <p>Búsquedas populares:</p>
+    <div class="search-buttons">
+      <button (click)="termino='aves'; buscar()">Aves</button>
+      <button (click)="termino='mamíferos'; buscar()">Mamíferos</button>
+      <button (click)="termino='reptiles'; buscar()">Reptiles</button>
+      <button (click)="termino='perro'; buscar()">Perros</button>
+      <button (click)="termino='insectos'; buscar()">Insectos</button>
+      <button (click)="termino='plantas'; buscar()">Plantas</button>
+    </div>
+  </div>
 
   <div *ngIf="loading" class="loading">
-    Cargando resultados...
+    <p>Buscando especies en Tonalá...</p>
+    <div class="spinner"></div>
   </div>
 
   <div *ngIf="error" class="error">
-    {{ error }}
+    <p>{{ error }}</p>
+    <p>Prueba con otra palabra clave o utiliza los botones de categorías generales.</p>
+    <p><strong>Sugerencia:</strong> Para animales domésticos como perros, gatos o caballos, puedes probar usando su nombre en singular (por ejemplo: "perro" en lugar de "perros").</p>
+  </div>
+
+  <div *ngIf="!loading && !error && resultados.length > 0" class="resultados-info">
+    <p>Se encontraron {{ resultados.length }} especies para "{{ termino }}" en Tonalá</p>
+    <p class="tip">Haz clic en una tarjeta para ver más detalles</p>
   </div>
 
   <div *ngIf="!loading && !error" class="resultados">
-    <div *ngFor="let animal of resultados" class="animal-card">
-      <img 
-        *ngIf="animal.photos && animal.photos.length > 0" 
-        [src]="animal.photos[0].url.replace('square', 'medium')" 
-        alt="{{ animal.taxon.preferred_common_name || animal.taxon.name }}"
-        (error)="handleImageError($event)"
-      >
-      <h3>{{ animal.taxon.preferred_common_name || animal.taxon.name }}</h3>
-      <p>Nombre científico: <i>{{ animal.taxon.name }}</i></p>
+    <div *ngFor="let animal of resultados" class="animal-card" tabindex="0">
+      <div class="image-container">
+        <img
+          *ngIf="animal.imageUrl"
+          [src]="animal.imageUrl"
+          [alt]="animal.commonName"
+          (error)="handleImageError($event)"
+        />
+        <div class="image-overlay">
+          <span>Ver en iNaturalist</span>
+        </div>
+      </div>
+      <div class="animal-info">
+        <h3>{{ animal.commonName }}</h3>
+        <p class="scientific-name"><i>{{ animal.name }}</i></p>
+        <p *ngIf="animal.iconic_taxon_name" class="taxon-group">
+          Grupo: {{ animal.iconic_taxon_name }}
+        </p>
+        <a [href]="'https://www.inaturalist.org/taxa/' + animal.id" target="_blank" class="more-info">
+          Ver más información
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && !error && resultados.length === 0" class="no-results">
+    <p>No se encontraron especies para "{{ termino }}" en Tonalá.</p>
+    <p>Intenta con otra palabra clave o utiliza los botones de categorías en la parte superior.</p>
+    <div class="suggestions">
+      <p><strong>Sugerencias:</strong></p>
+      <ul>
+        <li>Usa términos en español o nombres científicos</li>
+        <li>Prueba con categorías generales (aves, peces, etc.)</li>
+        <li>Para fauna doméstica, usa términos como "perro", "gato", etc.</li>
+        <li>Asegúrate de escribir el nombre correctamente</li>
+      </ul>
     </div>
   </div>
 </div>
