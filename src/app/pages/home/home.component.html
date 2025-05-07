@@ -4,17 +4,24 @@
   </header>
   
   <div class="imagen-fondo">
-    <img src="assets/cutnoche.png">
+    <img src="assets/cutnoche.png" alt="Vista nocturna del campus universitario">
   </div>
   
   <div class="content">
     <div class="content-wrapper">
       <h1 class="h1home">Bienvenido a la Guía de Fauna</h1>
-      <p class="p1home">Explora la fauna de tu centro universitario</p>
+      <h2 class="p1home">Explora la fauna de tu centro universitario</h2>
       <div class="input-btn-container">
         <div class="search-container">
-          <input class="buscador" type="text" [(ngModel)]="busqueda" placeholder="Busca un animal..." />
-          <span class="search-icon">🔍</span>
+          <label for="busqueda" class="visually-hidden">Buscar un animal</label>
+          <input
+            id="busqueda"
+            class="buscador"
+            type="text"
+            [(ngModel)]="busqueda"
+            placeholder="Busca un animal..."
+          />
+                    <span class="search-icon">🔍</span>
         </div>
         
         <button class="button-buscar" (click)="buscar()">
