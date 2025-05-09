@@ -1,7 +1,9 @@
 :root {
   --verdeoscuro: #152626;
+  --verdemediano: #2E4F4F;  /* Añadido para consistencia con animales.component */
   --verdeclaro: #6B7334;
   --beige: #F2EFDC;
+  --beigeoscuro: #E6E0C0;   /* Añadido para consistencia con animales.component */
   --oscuro222: #222;
 }
 
@@ -25,6 +27,7 @@
   border-radius: 12px;
   border: solid var(--oscuro222);
   box-sizing: border-box;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);  /* Añadido para consistencia con animales.component */
 }
 
 .content-wrapper {
@@ -75,7 +78,7 @@
 input {
   width: 100%;
   padding: 12px 40px 12px 15px;
-  border: 2px solid var(--verdeclaro);
+  border: 3px solid var(--beigeoscuro);  /* Cambiado: borde más claro y más ancho */
   border-radius: 12px;
   box-sizing: border-box;
   font-size: 16px;
@@ -86,9 +89,9 @@ input {
 }
 
 input:focus {
-  border-color: var(--verdeclaro);
+  border-color: var(--beige);  /* Cambiado: focus aún más claro */
   outline: none;
-  box-shadow: 0 0 0 3px rgba(107, 115, 52, 0.2);
+  box-shadow: 0 0 0 3px rgba(242, 239, 220, 0.3);  /* Cambiado: sombra más visible */
 }
 
 .search-icon {
@@ -136,28 +139,31 @@ input:focus {
   text-align: center;
 }
 
-/* Botón simplificado */
+/* Botón mejorado */
 .button-buscar {
   width: 100%;
   padding: 12px 20px;
-  background-color: var(--verdeoscuro);
+  background-color: var(--verdemediano);  /* Cambiado: usar verdemediano para consistencia */
   color: var(--beige);
-  border: 2px solid var(--verdeclaro);
+  border: 3px solid var(--beigeoscuro);  /* Cambiado: borde más claro y grueso */
   border-radius: 12px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  /* Añadido: sombra para más visibilidad */
 }
 
 .button-buscar:hover {
-  background-color: #1e3535;
-  box-shadow: 0 0 8px rgba(107, 115, 52, 0.5);
+  background-color: var(--verdeclaro);  /* Cambiado: hover más distinto */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);  /* Sombra aumentada en hover */
+  transform: translateY(-2px);  /* Efecto sutil de elevación */
 }
 
 .button-buscar:active {
   transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);  /* Sombra reducida cuando se presiona */
 }
 
 /* Media queries para dispositivos móviles */

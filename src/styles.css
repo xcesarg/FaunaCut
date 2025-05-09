@@ -3,8 +3,10 @@
 }
 :root{
   --verdeoscuro : #152626;
-  --verdeeclaro: #6B7334;
+  --verdemediano: #2E4F4F;  /* Añadido para consistencia entre páginas */
+  --verdeclaro: #6B7334;
   --beige: #F2EFDC;
+  --beigeoscuro: #E6E0C0;   /* Añadido para consistencia entre páginas */
   --oscuro222: #222;
 }
 .main-container {

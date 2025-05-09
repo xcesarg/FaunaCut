@@ -5,6 +5,19 @@
   --oscuro222: #222;
 }
 
+/* Clase para elementos visualmente ocultos pero accesibles para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .elheader {
   position: fixed;
   top: 0;
@@ -23,6 +36,8 @@
 
 .logo-container {
   flex: 0 0 auto;
+  display: flex; /* Para contener el h1 oculto y la imagen */
+  align-items: center;
 }
 
 .logofc {
